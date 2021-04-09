@@ -19,13 +19,13 @@ const UserSchema = new Schema({
   },
   username: { type: String, required: true, index: true, unique: true },
   password: { type: String, required: true, bcrypt: true },
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
 })
 const AdminUserSchema = new Schema({
   companyName: { type: String, required: true },
 })
 const CustomerUserSchema = new Schema({
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
   address: { type: String },
   telephone: { type: String },
 })

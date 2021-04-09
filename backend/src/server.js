@@ -24,6 +24,9 @@ app.use(
     secret: process.env.SECRET ?? 'default-secret',
     algorithms: ['HS256'],
     getToken: (req) => {
+      if (req?.cookies?.token) {
+        return req?.cookies?.token
+      }
       if (req?.headers?.authorization?.split(' ')?.[0] === 'Bearer') {
         return req?.headers?.authorization?.split(' ')?.[1]
       }
