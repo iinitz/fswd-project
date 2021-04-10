@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/client'
 
 import { CREATE_CUSTOMER_MUTATION } from '../../graphql/createCustomerMutation'
 import { CREATE_ADMIN_MUTATION } from '../../graphql/createAdminMutation'
+import { Link } from 'react-router-dom'
 
 const RegisterForm = () => {
   const history = useHistory()
@@ -49,11 +50,10 @@ const RegisterForm = () => {
     },
     [createCustomer, createAdmin, history, newUser, admin, type]
   )
-
   let AdminForm =
     type === 'admin' ? (
       <input
-        className="RegisterForm-input"
+        className="h-10 rounded w-full border px-3 focus:text-black focus:border-blue-100 mb-3"
         type="text"
         name="companyName"
         value={admin.companyName}
@@ -64,72 +64,96 @@ const RegisterForm = () => {
     ) : null
 
   return (
-    <form className="RegisterForm-form" onSubmit={handleRegister}>
-      <p>Please select role:</p>
-      <div>
-        <input
-          type="radio"
-          name="type"
-          value="customer"
-          onChange={handleTypeChange}
-          checked={type === 'customer'}
-        />{' '}
-        customer
-        <input
-          type="radio"
-          name="type"
-          value="admin"
-          onChange={handleTypeChange}
-          checked={type === 'admin'}
-        />{' '}
-        admin
+    <div className="p-8 mt-20 bg-white rounded-lg max-w-md pb-10 m-4">
+      <div className="text-center">
+        <h1 className="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">
+          Register
+        </h1>
       </div>
+      <form onSubmit={handleRegister}>
+        <div className="mt-4">
+          <span className="text-gray-700">Please select role:</span>
+          <div className="mt-1 mb-3">
+            <label className="inline-flex items-center mr-4">
+              <input
+                type="radio"
+                name="type"
+                value="customer"
+                onChange={handleTypeChange}
+                checked={type === 'customer'}
+              />
+              <span className="ml-1">customer</span>
+            </label>
+            <label className="inline-flex items-center">
+              <input
+                type="radio"
+                name="type"
+                value="admin"
+                onChange={handleTypeChange}
+                checked={type === 'admin'}
+              />
+              <span className="ml-1">admin</span>
+            </label>
+          </div>
+        </div>
 
-      <input
-        className="RegisterForm-input"
-        type="text"
-        name="username"
-        value={newUser.username}
-        onChange={handleInputChange}
-        placeholder="Username"
-        autoComplete="off"
-        required
-      />
-      <input
-        className="RegisterForm-input"
-        type="password"
-        name="password"
-        value={newUser.password}
-        onChange={handleInputChange}
-        placeholder="Password"
-        required
-      />
-      <input
-        className="RegisterForm-input"
-        type="text"
-        name="firstName"
-        value={newUser.firstName}
-        onChange={handleInputChange}
-        placeholder="firstName"
-        autoComplete="off"
-        required
-      />
-      <input
-        className="RegisterForm-input"
-        type="text"
-        name="lastName"
-        value={newUser.lastName}
-        onChange={handleInputChange}
-        placeholder="lastName"
-        autoComplete="off"
-        required
-      />
-      {AdminForm}
+        <input
+          className="h-10 rounded w-full border px-3 focus:text-black focus:border-blue-100 mb-3"
+          type="text"
+          name="username"
+          value={newUser.username}
+          onChange={handleInputChange}
+          placeholder="Username"
+          autoComplete="off"
+          required
+        />
+        <input
+          className="h-10 rounded w-full border px-3 focus:text-black focus:border-blue-100 mb-3"
+          type="password"
+          name="password"
+          value={newUser.password}
+          onChange={handleInputChange}
+          placeholder="Password"
+          required
+        />
 
-      <button className="RegisterForm-button" type="submit">
-        Register
-      </button>
-    </form>
+        <input
+          className="h-10 rounded border w-full px-3 focus:text-black focus:border-blue-100 mb-3"
+          type="text"
+          name="firstName"
+          value={newUser.firstName}
+          onChange={handleInputChange}
+          placeholder="firstName"
+          autoComplete="off"
+          required
+        />
+        <input
+          className="h-10 rounded border w-full px-3 focus:text-black focus:border-blue-100 mb-3"
+          type="text"
+          name="lastName"
+          value={newUser.lastName}
+          onChange={handleInputChange}
+          placeholder="lastName"
+          autoComplete="off"
+          required
+        />
+
+        {AdminForm}
+
+        <button
+          className="uppercase h-10 mt-3 text-white w-full rounded bg-green-500 hover:bg-green-600"
+          type="submit"
+        >
+          Register
+        </button>
+        <div className="flex justify-center items-center mt-2">
+          go back to
+          <Link to="/login" className=" ml-2 text-gray-400 hover:text-gray-600">
+            Login
+          </Link>
+        </div>
+      </form>
+    </div>
   )
 }
 

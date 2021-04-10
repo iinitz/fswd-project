@@ -6,6 +6,7 @@ export const LOGIN_MUTATION = gql`
       token
       user {
         _id
+        username
         type
       }
     }

@@ -24,10 +24,10 @@ const App = () => {
             <Route exact path="/">
               <HomePage />
             </Route>
-            <Route exact path="/login">
+            <Route path="/login">
               <LoginPage />
             </Route>
-            <Route path="/login/register">
+            <Route path="/register">
               <RegisterPage />
             </Route>
           </Switch>

@@ -14,10 +14,10 @@ const LoginPage = () => {
       return (
         <Fragment>
           <span className="Navbar-user">
-            id : {user?._id} type: {user?.type}
+            username : {user?.username} type: {user?.type}
           </span>
           <button
-            className="Navbar-logout"
+            className="bg-white hover:bg-gray-100 text-gray-800 py-1 px-4 border border-gray-400 rounded-full ml-5"
             type="button"
             onClick={handleLogout}
           >
@@ -30,9 +30,8 @@ const LoginPage = () => {
   }, [handleLogout, loading, user])
 
   return (
-    <div>
-      <h4>LoginPage</h4>
-      {userBox}
+    <div className="min-h-screen bg-gray-100">
+      <div className="flex justify-center items-center p-4">{userBox}</div>
     </div>
   )
 }
