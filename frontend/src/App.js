@@ -1,8 +1,8 @@
 import React, { Fragment, Suspense } from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import './App.css'
-import Navbar from './components/Navigation/Toolbar/Toolbar'
+import classes from './App.module.css'
+import Layout from './components/Layout/Layout'
 
 const HomePage = React.lazy(() => import('./pages/HomePage'))
 const LoginPage = React.lazy(() => import('./pages/LoginPage'))
@@ -12,22 +12,26 @@ const App = () => {
   return (
     <Fragment>
       <div>
-        <Navbar />
-        <div>
-          <Suspense fallback="Loading ...">
-            <Switch>
-              <Route exact path="/">
-                <HomePage />
-              </Route>
-              <Route path="/login">
-                <LoginPage />
-              </Route>
-              <Route path="/register">
-                <RegisterPage />
-              </Route>
-            </Switch>
-          </Suspense>
-        </div>
+        <Layout />
+        <Suspense
+          fallback={
+            <div className={`${classes.fullPageLoader} ${classes.Logo}`}>
+              <img width="50" src={'/shop.png'} alt="shop" />
+            </div>
+          }
+        >
+          <Switch>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route exact path="/login">
+              <LoginPage />
+            </Route>
+            <Route path="/login/register">
+              <RegisterPage />
+            </Route>
+          </Switch>
+        </Suspense>
       </div>
     </Fragment>
   )

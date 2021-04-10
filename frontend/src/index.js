@@ -5,6 +5,8 @@ import { BrowserRouter } from 'react-router-dom'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 
 import App from './App'
+import './index.css'
+import classes from './App.module.css'
 import { SessionProvider } from './contexts/SessionContext'
 import reportWebVitals from './reportWebVitals'
 
@@ -18,7 +20,13 @@ ReactDOM.render(
   <React.StrictMode>
     <CookiesProvider>
       <BrowserRouter>
-        <Suspense fallback={<div>Loading... </div>}>
+        <Suspense
+          fallback={
+            <div className={`${classes.fullPageLoader} ${classes.Logo}`}>
+              <img width="50" src={'/shop.png'} alt="shop" />
+            </div>
+          }
+        >
           <ApolloProvider client={client}>
             <SessionProvider>
               <App />

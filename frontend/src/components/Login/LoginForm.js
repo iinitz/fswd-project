@@ -22,7 +22,7 @@ const LoginForm = () => {
     [login, password, username]
   )
   const redirectToRegister = useCallback(() => {
-    history.push('/register')
+    history.push('/login/register')
   }, [history])
   return (
     <form onSubmit={handleLogin}>
@@ -40,7 +40,9 @@ const LoginForm = () => {
         placeholder="Password"
         required
       />
+      <br />
       <button type="submit">Login</button>
+      <br />
       <button type="button" onClick={redirectToRegister}>
         Register
       </button>
