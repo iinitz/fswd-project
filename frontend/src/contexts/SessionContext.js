@@ -58,6 +58,7 @@ export const SessionProvider = (props) => {
       } catch (err) {
         removeCookie('token', { maxAge: 86400 })
       }
+      return removeCookie('token', { maxAge: 86400 })
     }
     loadData()
   }, [loadMe, removeCookie])
