@@ -7,6 +7,7 @@ const LoginForm = () => {
   const { login } = useSession()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [err, serErr] = useState('')
   const handleUsernameChange = useCallback((e) => {
     setUsername(e.target.value)
   }, [])
@@ -16,7 +17,12 @@ const LoginForm = () => {
   const handleLogin = useCallback(
     async (e) => {
       e.preventDefault()
-      await login(username, password)
+      try {
+        await login(username, password)
+        serErr('')
+      } catch (e) {
+        serErr(e.message)
+      }
     },
     [login, password, username]
   )
@@ -42,8 +48,9 @@ const LoginForm = () => {
           placeholder="Password"
           required
         />
+        <p className="text-center mt-5 text-red-600 text-xs">{err}</p>
         <button
-          className="uppercase h-10 mt-6 text-white w-full rounded bg-red-500 hover:bg-red-600"
+          className="uppercase h-10 mt-3 text-white w-full rounded bg-red-500 hover:bg-red-600"
           type="submit"
         >
           Login

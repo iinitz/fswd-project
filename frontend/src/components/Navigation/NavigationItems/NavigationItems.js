@@ -21,7 +21,7 @@ const NavigationItems = (props) => {
         <Fragment>
           <Link
             to="/Login"
-            className="bg-white hover:bg-gray-100 text-gray-800 py-1 px-4 border border-gray-400 rounded-full ml-5"
+            className="bg-white hover:bg-gray-100 text-gray-800 py-1 px-4 border border-gray-400 rounded-full"
           >
             {user?.username}
           </Link>
@@ -32,7 +32,7 @@ const NavigationItems = (props) => {
       <Fragment>
         <Link
           to="/Login"
-          className="bg-white hover:bg-gray-100 text-gray-800 py-1 px-4 border border-gray-400 rounded-full ml-5"
+          className="bg-white hover:bg-gray-100 text-gray-800 py-1 px-4 border border-gray-400 rounded-full"
         >
           Login
         </Link>

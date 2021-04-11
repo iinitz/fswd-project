@@ -18,6 +18,7 @@ const RegisterForm = () => {
   const [admin, setAdmin] = useState({
     companyName: '',
   })
+  const [err, serErr] = useState('')
   const [[createCustomer], [createAdmin]] = [
     useMutation(CREATE_CUSTOMER_MUTATION),
     useMutation(CREATE_ADMIN_MUTATION),
@@ -41,11 +42,12 @@ const RegisterForm = () => {
           await createCustomer({ variables: { record: newUser } })
         else
           await createAdmin({ variables: { record: { ...newUser, ...admin } } })
+        serErr('')
         history.push('/')
-        alert('Register success')
       } catch (err) {
-        console.log(err)
-        alert('Register failed')
+        if (err.message.split(' ')[0] === 'E11000') {
+          serErr('This username is already used!')
+        } else serErr('Register failed!')
       }
     },
     [createCustomer, createAdmin, history, newUser, admin, type]
@@ -139,7 +141,7 @@ const RegisterForm = () => {
         />
 
         {AdminForm}
-
+        <p className="text-center mt-3 text-red-600 text-xs">{err}</p>
         <button
           className="uppercase h-10 mt-3 text-white w-full rounded bg-green-500 hover:bg-green-600"
           type="submit"
