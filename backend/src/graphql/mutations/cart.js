@@ -1,5 +1,5 @@
 import { CartTC } from '../../models'
 
 export const updatePrice = CartTC.getResolver('updateById')
-export const addProduct = CartTC.getResolver('createOne')
-export const removeProductById = CartTC.getResolver('removeById')
+export const addToCart = CartTC.getResolver('createOne')
+export const delProduct = CartTC.getResolver('removeById')
