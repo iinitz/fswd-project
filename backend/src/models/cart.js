@@ -4,8 +4,7 @@ import { composeWithMongoose } from 'graphql-compose-mongoose'
 const { Schema } = mongoose
 
 const productInCartSchema = new Schema({
-  productID: {type: String, required: true},
-  quantiry: {type: Number, required: true},
+  quantity: {type: Number, required: true},
   unitPrice: {type: Number, required: true},
 })
 
