@@ -27,13 +27,19 @@ const BaseProductSchema = new Schema({
         required: true,
         ref: 'User'
     },
+    timestamp:{type: Date, default: Date.now}
 })
 
 const PromotionProductSchema = new Schema({
-    discount: {type: mongoose.Decimal128, require: true}
+    discount: {type: mongoose.Decimal128, require: true},
+    limit:{type: Number, required: true}
 })
 
-const discriminatorOptions = {}
+const discriminatorOptions = { 
+    inputType: {
+        removeFields:['timestamp'],
+    }
+}
 
 BaseProductSchema.set('discriminatorKey', discriminatorKey)
 
