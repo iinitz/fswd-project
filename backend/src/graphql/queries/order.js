@@ -1,7 +1,5 @@
-import { schemaComposer } from 'graphql-compose'
+import OrderTC from '../../models'
 
-import {
-  OrderModel,
-  OrderTC,
-} from '../../models'
-
+export const cart = OrderTC.getResolver('findMany')
+export const cart = OrderTC.getResolver('findBuIds')
+export const cart = OrderTC.getResolver('findOne')
