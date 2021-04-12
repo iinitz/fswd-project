@@ -1,5 +1,5 @@
 import { ProductTC } from '../../models'
 
 export const createProduct = ProductTC.getResolver('createOne')
-export const updateProduct = ProductTC.getResolver('updateById')
-export const removeProduct = ProductTC.getResolver('removeById')
+export const updateProductById = ProductTC.getResolver('updateById')
+export const removeProductById = ProductTC.getResolver('removeById')
