@@ -7,6 +7,7 @@ import Layout from './components/Layout/Layout'
 const HomePage = React.lazy(() => import('./pages/HomePage'))
 const LoginPage = React.lazy(() => import('./pages/LoginPage'))
 const RegisterPage = React.lazy(() => import('./pages/RegisterPage'))
+const OrderPage = React.lazy(() => import('./pages/OrderPage'))
 
 const App = () => {
   return (
@@ -29,6 +30,9 @@ const App = () => {
             </Route>
             <Route path="/register">
               <RegisterPage />
+            </Route>
+            <Route path="/order">
+              <OrderPage />
             </Route>
           </Switch>
         </Suspense>

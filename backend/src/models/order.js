@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { composeWithMongooseDiscriminators } from 'graphql-compose-mongoose'
+import { composeWithMongoose, composeWithMongooseDiscriminators } from 'graphql-compose-mongoose'
 
 const { Schema } = mongoose
 
@@ -19,6 +19,6 @@ const OrderSchema = new Schema({
 
 export const OrderModel = mongoose.model('Order', OrderSchema)
 
-export const OrderTC = composeWithMongooseDiscriminators(OrderModel)
+export const OrderTC = composeWithMongoose(OrderModel)
 
 export default OrderModel
