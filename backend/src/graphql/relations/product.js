@@ -7,13 +7,13 @@ BaseProductTC.addRelation(
         prepareArgs: {
             _id: (source) => source.createdByUser,
         },
-        projection: { createdById: 1},
+        projection: { createdByUser: true},
     }
 )
 BaseProductTC.addFields({
     timestamp:{
         type: "String",
         resolve: (source) => moment(source.timestamp).fromNow(),
-        projection: {timestamp:1},
+        projection: {timestamp: true},
     },
 })
