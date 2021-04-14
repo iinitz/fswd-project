@@ -1,10 +1,9 @@
-import { react } from 'react'
+import GetCart from '../components/Order/GetCart'
 
 
 
 const OrderPage = () => {
-   return <h1>Hello World</h1>
-   
+   return <GetCart />
 }
 
 export default OrderPage
