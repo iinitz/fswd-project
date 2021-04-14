@@ -34,6 +34,9 @@ const PromotionProductSchema = new Schema({
     discount: {type: mongoose.Decimal128, require: true},
     limit:{type: Number, required: true}
 })
+const ProductSchema = new Schema({
+
+})
 
 const discriminatorOptions = { 
     inputType: {
@@ -45,7 +48,7 @@ BaseProductSchema.set('discriminatorKey', discriminatorKey)
 
 export const BaseProductModel = mongoose.model('Products', BaseProductSchema)
 export const PromotionProductModel = BaseProductModel.discriminator(enumProductType.PROMOPRODUCT, PromotionProductSchema)
-export const ProductModel = BaseProductModel.discriminator(enumProductType.PRODUCT, BaseProductSchema)
+export const ProductModel = BaseProductModel.discriminator(enumProductType.PRODUCT, ProductSchema)
 
 export const BaseProductTC = composeWithMongooseDiscriminators(BaseProductModel)
 export const ProductTC = BaseProductTC.discriminator(ProductModel, {name:enumProductType.PRODUCT, ...discriminatorOptions})
