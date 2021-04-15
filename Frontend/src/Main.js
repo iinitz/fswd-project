@@ -12,8 +12,10 @@ import {
 } from "react-router-dom";
 
 import './Main.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Home from './Components/Home';
+import Home from './Components/Home/Home';
+import Footer from './Components/Footer/Footer';
 import Login from './Components/Login';
 import Register from './Components/Register';
 
@@ -32,9 +34,9 @@ function Main() {
 
                             <div className="search-box">
                                 {/* <div className="search-wrapper"> */}
-                                    <div className="search-field">
-                                        <input type="search" className="search-input" placeholder="Seach for products.." />
-                                    </div>
+                                <div className="search-field">
+                                    <input type="search" className="search-input" placeholder="Seach for products.." />
+                                </div>
                                 {/* </div> */}
                             </div>
 
@@ -61,27 +63,54 @@ function Main() {
                     </div>
 
                     <div className="header-menu">
-                        <Link to="/" className="user-list">
-                            <div className="catagory-menu">aaaaa</div>
-                        </Link>
-                        <div className="catagory-menu">dddddd</div>
-                        <div className="catagory-menu">ffffff</div>
-                        <div className="catagory-menu">eeeeee</div>
+                        <ul className="header-menu-container">
+                            <Link to="/" className="catagory-menu">
+                                <li>New</li>
+                            </Link>
+                            <Link to="/" className="catagory-menu">
+                                <li>Sofas</li>
+                            </Link>
+                            <Link to="/" className="catagory-menu">
+                                <li>Chairs</li>
+                            </Link>
+                            <Link to="/" className="catagory-menu">
+                                <li>Tables</li>
+                            </Link>
+                            <Link to="/" className="catagory-menu">
+                                <li>Beds</li>
+                            </Link>
+                            <Link to="/" className="catagory-menu">
+                                <li>Wardrobes</li>
+                            </Link>
+                            <Link to="/" className="catagory-menu">
+                                <li>Drawer & Shelf</li>
+                            </Link>
+                            <Link to="/" className="catagory-menu">
+                                <li>Lighting</li>
+                            </Link>
+                            <Link to="/" className="catagory-menu">
+                                <li>Garden</li>
+                            </Link>
+                            <Link to="/" className="catagory-menu">
+                                <li>Children's furniture</li>
+                            </Link>
+                        </ul>
                     </div>
                 </nav>
 
                 <Switch>
-                    <Route path="/">
-                        <Home />
-                    </Route>
                     <Route path="/login">
                         <Login />
                     </Route>
                     <Route path="/register">
                         <Register />
                     </Route>
+                    <Route path="/">
+                        <Home />
+                    </Route>
                 </Switch>
 
+                <Footer />
             </Router>
         </>
     );

@@ -1,0 +1,5 @@
+@import '../../Main.css';
+
+footer {
+    background-color: var(--bg-secondary);
+}
