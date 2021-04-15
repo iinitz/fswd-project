@@ -1,3 +1,4 @@
+import moment from 'moment'
 import { OrderTC, UserTC } from '../../models'
 
 OrderTC.addRelation(
@@ -9,3 +10,11 @@ OrderTC.addRelation(
         projection: {createdById: true},
     }
 )
+
+OrderTC.addFields({
+    timestamp:{
+        type: "String",
+        resolve: (source) => moment(source.timestamp).fromNow(),
+        projection: {timestamp: true},
+    },
+})

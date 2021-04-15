@@ -2,12 +2,23 @@ import { gql } from '@apollo/client'
 
     export const CART_QUERY = gql`
     query{
-        cartById(_id:"60759689d3edb62678576709"){
-        product{
+        cart(filter:{
+          createdById: "6077f2c070ffdf2acc072bc9"
+        }){
+          product{
+            productId
+            productInfo{
+              name
+              count
+              price
+            }
             quantity
-            _id
-            unitPrice
+          }
+        createdByUser{
+          username
+          firstName
+          lastName
         }
         }
-    }
+      }
 `
