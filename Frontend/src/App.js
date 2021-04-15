@@ -1,9 +1,16 @@
-import logo from "./logo.svg";
-import Sidebar from "./Sidebar/sidebar";
+import * as React from 'react';
+import Navigation from './components/Navigation'
 import "./App.css";
 
 function App() {
-  return <Sidebar />;
+  console.log = console.warn = console.error = () => {};
+
+console.error('Something bad happened.');
+  return (
+    <div >
+      <Navigation/>
+    </div>
+  );
 }
 
 export default App;
