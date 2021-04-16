@@ -11,7 +11,7 @@ import { SessionProvider } from './contexts/SessionContext'
 import reportWebVitals from './reportWebVitals'
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3001/graphql',
+  uri: 'http://localhost:5001/graphql',
   cache: new InMemoryCache(),
   credentials: 'include',
 })
