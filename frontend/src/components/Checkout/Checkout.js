@@ -7,7 +7,7 @@ import { CART_QUERY } from '../../graphql/testCartQuery'
 const Checkout = () => {
 
     const {error, loading, data} = useQuery(CART_QUERY)
-    const {cartData, setCartData} = useState([])
+    const {cartData, setCartData} = useState()
 
 
     function pressFunc(){
@@ -16,6 +16,7 @@ const Checkout = () => {
 
     if(data){
         console.log(data)
+        console.log(cartData)
     }
 
     return(
@@ -52,8 +53,11 @@ const Checkout = () => {
                 )
             })
         }
+
         <button onClick={pressFunc} className="m-2 p-1 bg-gray-200 shadow-md hover:shadow-xl">Create Order</button>
         
+
+
         </>
     )
 }

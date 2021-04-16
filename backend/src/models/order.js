@@ -6,12 +6,12 @@ const { Schema } = mongoose
 
 const ProductInOrderSchema = new Schema({
   quantity: {type: Number, required: true},
-  unitPrice: {type: Number, required: true},
+  productId: {type:String, required: true},
 })
 
 const OrderSchema = new Schema({
   status: {type: String, required: true},
-  createBy: {type: String, required: true},
+  createdById: {type: String, required: true},
   product: {type: ProductInOrderSchema, required: true}
 })
 
