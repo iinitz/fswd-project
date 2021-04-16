@@ -8,7 +8,6 @@ import {
   faBoxes,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Container, Row, Col } from "react-bootstrap";
 
 const Sidebar = (props) => {
   return (
@@ -48,39 +47,38 @@ const Sidebar = (props) => {
           <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
             <h2>DASHBOARD</h2>
           </nav>
-
-          <Container>
-            <Row id="row1">
-              <Col>
+          <div class="container p-4 m-4">
+            <div class="row">
+              <div class="col-5 radius">
                 <h1>Total Sales</h1>
-              </Col>
-              <Col></Col>
-              <Col>
+              </div>
+              <div class="col-1"></div>
+              <div class="col-5 radius">
                 <h1>Total Revenue</h1>
-              </Col>
-            </Row>
-
-            <Row id="row2">
-              <Col>
+              </div>
+            </div>
+            <div class="row m-4"></div>
+            <div class="row">
+              <div class="col-5 radius">
                 <h1>Top 3 Categories</h1>
                 <p>0</p>
                 <p>1</p>
                 <p>2</p>
                 <p>3</p>
-              </Col>
-              <Col></Col>
-              <Col>
+              </div>
+              <div class="col-1"></div>
+              <div class="col-5 radius">
                 <h1>Total Brand</h1>
-              </Col>
-            </Row>
-          </Container>
+              </div>
+            </div>
+          </div>
 
           <div class="container-fluid">
             <p>
-            _________________________________________________________________
-            _________________________________________________________________
-            _________________________________________________________________
-            ____________________________________
+              _________________________________________________________________
+              _________________________________________________________________
+              _________________________________________________________________
+              ____________________________________
             </p>
           </div>
         </div>
