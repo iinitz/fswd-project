@@ -1,16 +1,5 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-<<<<<<< HEAD
-=======
-import "../styles/AdminDashboard.css";
-import {
-  faHome,
-  faArchive,
-  faAd,
-  faBoxes,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
->>>>>>> 60a2b0d38e0ce1a5fffd98e729586ac15c748a63
 
 import Sidebar from "../Sidebar/sidebar";
 
@@ -24,10 +13,7 @@ const AdminDashboard = () => {
           <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
             <h2>DASHBOARD</h2>
           </nav>
-<<<<<<< HEAD
 
-=======
->>>>>>> 60a2b0d38e0ce1a5fffd98e729586ac15c748a63
           <div class="container p-4 m-4">
             <div class="row">
               <div class="col-5 radius">
