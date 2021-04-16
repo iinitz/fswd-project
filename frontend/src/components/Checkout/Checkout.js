@@ -20,33 +20,31 @@ const Checkout = () => {
 
     return(
         <>
-        
         {
             data && data.cart.map((cart)=>{
 
                 // cart.product.map((product) => {
                 //     return <h1>{product.quantity}</h1>
                 // })
-
                 return(
                     <div className="flex">
                         <div className="m-3 p-2 bg-red-200">
                             {cart?.createdByUser?.firstName}{" "}{cart?.createdByUser?.lastName}
                             <ul>
                                 <li key="productID">
-                                    productId<br />{cart?.product[0]?.productId}
+                                    <b>Productid</b><br />{cart?.product[0]?.productId}
                                 </li>
                                 <li>
-                                    name<br />{cart?.product[0]?.productInfo?.name}
+                                    <b>name</b><br />{cart?.product[0]?.productInfo?.name}
                                 </li>
                                 <li>
-                                    price<br />{cart?.product[0]?.productInfo?.price}
+                                    <b>Price</b><br />{cart?.product[0]?.productInfo?.price}
                                 </li>
                                 <li>
-                                    stock<br />{cart?.product[0]?.productInfo?.count}
+                                    <b>Stock</b><br />{cart?.product[0]?.productInfo?.count}
                                 </li>
                                 <li>
-                                    quantity<br />{cart?.product[0]?.quantity}
+                                    <b>Quantity</b><br />{cart?.product[0]?.quantity}
                                 </li>
                             </ul>
                         </div>
@@ -55,6 +53,7 @@ const Checkout = () => {
             })
         }
         <button onClick={pressFunc} className="m-2 p-1 bg-gray-200 shadow-md hover:shadow-xl">Create Order</button>
+        
         </>
     )
 }

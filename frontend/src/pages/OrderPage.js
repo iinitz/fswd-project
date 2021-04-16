@@ -1,9 +1,9 @@
-import GetCart from '../components/Order/GetCart'
+import Order from '../components/Order/Order'
 
 
 
 const OrderPage = () => {
-   return <GetCart />
+   return <Order />
 }
 
 export default OrderPage
