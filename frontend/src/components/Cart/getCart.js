@@ -85,9 +85,10 @@ const GetCart = () => {
 
         var productIndex = inCart.findIndex((item) => item.productId === productId)
         if (inCart[productIndex].quantity === 1){
-            return removeProduct(productId)
+            inCart.splice(productIndex, 1)
+        }else{
+            inCart[productIndex].quantity = Math.max(inCart[productIndex].quantity - 1, 1)
         }
-        inCart[productIndex].quantity = Math.max(inCart[productIndex].quantity - 1, 1)
 
         // for (var index=0;index<inCart.length;index++){
         //     if (inCart[index].productId === productId){
