@@ -11,6 +11,7 @@ query Cart($userId: String!){
           name
           price
           timestamp
+          count
         }
         quantity
       }

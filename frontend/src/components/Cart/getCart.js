@@ -4,16 +4,16 @@ import { QUERY_CART } from '../../graphql/CartQuery'
 import { UPDATE_CART, CLEAR_CART } from '../../graphql/CartMutation'
 
 const GetCart = () => {
-    const {error, loading, data} = useQuery( QUERY_CART, {variables: {userId: "60758be6bf9d1d0ce58bb65e"}} )
+    const {error, loading, data} = useQuery( QUERY_CART, {variables: {userId: "6077f2c070ffdf2acc072bc9"}} )
     const [updateCart] = useMutation(UPDATE_CART)
     const [clearCart] = useMutation(CLEAR_CART)
 
     function UpdateQuantity(){
-        return updateCart({variables: {userId: "60758be6bf9d1d0ce58bb65e"}})
+        return updateCart({variables: {userId: "6077f2c070ffdf2acc072bc9"}})
     }
 
     function clear_Cart(){
-        return clearCart({variables: {userId: "60758be6bf9d1d0ce58bb65e"}})
+        return clearCart({variables: {userId: "6077f2c070ffdf2acc072bc9"}})
     }
 
     function addProduct(){

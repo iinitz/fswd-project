@@ -1,16 +1,28 @@
 import { gql } from '@apollo/client'
 
-export const ORDER_QUERY = gql`
-    query{
-        cart(filter:{createdById:$userid}){
-        createdById
-        product{
-            productInfo{
-            name
-            }
-            quantity
+export const CREATE_ORDER = gql`
+    mutation createOrder(
+        $statusOrder: String!,
+        $userId: String!,
+        $payment: String!,
+        $productId: String!,
+        $quantity: Float!
+    ){
+        createOrder(record:{
+        status: $statusOrder,
+        createdById: $userId,
+        paymentDetail: $payment,
+        product:{
+        productId: $productId,
+        quantity: $quantity
         }
-        paymentdetail
+    }){
+        record{
+        timestamp
+        product{
+        productId
+      }
         }
     }
+}
 `

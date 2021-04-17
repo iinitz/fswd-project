@@ -10,6 +10,7 @@ const RegisterPage = React.lazy(() => import('./pages/RegisterPage'))
 const OrderPage = React.lazy(() => import('./pages/OrderPage'))
 const CheckoutPage = React.lazy(() => import('./pages/CheckoutPage'))
 const CartPage = React.lazy(() => import('./pages/CartPage'))
+const PaymentPage = React.lazy(() => import('./pages/PaymentPage'))
 
 const App = () => {
   return (
@@ -35,6 +36,15 @@ const App = () => {
             </Route>
             <Route path="/order">
               <OrderPage />
+            </Route>S
+            <Route path="/checkout">
+              <CheckoutPage />
+            </Route>
+            <Route path="/cart">
+              <CartPage />
+            </Route>
+            <Route path="/payment">
+              <PaymentPage />
             </Route>
           </Switch>
         </Suspense>

@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { OrderTC, UserTC } from '../../models'
+import { OrderTC, UserTC, BaseProductTC} from '../../models'
 
 OrderTC.addRelation(
     'createdByUser',{
@@ -8,6 +8,16 @@ OrderTC.addRelation(
             _id: (source) => source.createdById,
         },
         projection: {createdById: true},
+    }
+)
+
+OrderTC.getFieldTC('product').addRelation(
+    'productInfo',{
+        resolver: () => BaseProductTC.getResolver('findById'),
+        prepareArgs: {
+            _id: (source) => source.productId,
+        },
+        projection: {productId: true},
     }
 )
 
