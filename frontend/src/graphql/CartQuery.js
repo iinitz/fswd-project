@@ -1,4 +1,4 @@
-import { gql, useQuery } from '@apollo/client'
+import { gql } from '@apollo/client'
 
 export const QUERY_CART = gql`
 query Cart($userId: String!){
@@ -11,6 +11,7 @@ query Cart($userId: String!){
           name
           price
           timestamp
+          count
         }
         quantity
       }

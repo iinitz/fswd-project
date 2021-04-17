@@ -1,19 +1,20 @@
 import { gql } from '@apollo/client';
 
-export const UPDATE_CART = gql`
+// reset is for test
+export const RESET_CART = gql`
 mutation UpdateCart($userId: String!){
     updateCart(filter:{
       createdById: $userId
     }, record:{
       product :[
       {
-        productId: "6076b902f4d1450a8f8b2bd0"
-        quantity : 999
+        productId: "6076b912f4d1450a8f8b2bd1"
+        quantity : 10
           _id: "6076edafc6f8b61586287e4e"
       },
       {
-        productId: "6076b912f4d1450a8f8b2bd1"
-        quantity : 999
+        productId: "6076b902f4d1450a8f8b2bd0"
+        quantity : 100
         _id: "6076edafc6f8b61586287e4f"
       }
     ]
@@ -22,6 +23,19 @@ mutation UpdateCart($userId: String!){
       __typename
     }
   }
+`;
+
+export const UPDATE_CART = gql`
+mutation increaseItem($userId: String!, $product: [UpdateOneCartProductInput]!){
+  updateCart(
+    filter: { createdById: $userId }
+    record: {
+      product: $product
+    }
+  ) {
+    __typename
+  }
+}
 `;
 
 export const CLEAR_CART = gql`
