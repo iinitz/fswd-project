@@ -8,7 +8,7 @@ const HomePage = React.lazy(() => import('./pages/HomePage'))
 const LoginPage = React.lazy(() => import('./pages/LoginPage'))
 const RegisterPage = React.lazy(() => import('./pages/RegisterPage'))
 const OrderPage = React.lazy(() => import('./pages/OrderPage'))
-
+const ProductPage = React.lazy(() => import('./pages/ProductPage'))
 const App = () => {
   return (
     <Fragment>
@@ -33,6 +33,9 @@ const App = () => {
             </Route>
             <Route path="/order">
               <OrderPage />
+            </Route>
+            <Route path="/products">
+              <ProductPage />
             </Route>
           </Switch>
         </Suspense>
