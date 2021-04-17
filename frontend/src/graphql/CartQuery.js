@@ -22,3 +22,19 @@ query Cart($userId: String!){
     }
   }
 `
+export const QUERY_CART_ORDER = gql`
+query Cart($userId: String!){
+    cart(filter:{
+      createdById: $userId
+    }){
+      product{
+        productId
+        quantity
+      }
+      createdByUser{
+        firstName
+        lastName
+      }
+    }
+  }
+`

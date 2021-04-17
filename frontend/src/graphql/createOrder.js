@@ -5,17 +5,13 @@ export const CREATE_ORDER = gql`
         $statusOrder: String!,
         $userId: String!,
         $payment: String!,
-        $productId: String!,
-        $quantity: Float!
+        $product: [OrderProductInput]!
     ){
         createOrder(record:{
         status: $statusOrder,
         createdById: $userId,
         paymentDetail: $payment,
-        product:{
-        productId: $productId,
-        quantity: $quantity
-        }
+        product:$product
     }){
         record{
         timestamp

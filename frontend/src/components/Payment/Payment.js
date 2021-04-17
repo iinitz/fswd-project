@@ -5,72 +5,57 @@ import { productDetail } from './productDetail'
 
 const Payment = () => {
     const {error, loading, data} = useQuery( QUERY_ORDER, {variables: {userId: "6077f2c070ffdf2acc072bc9"}} )
-    const {total, setTotal} = useState(0)
+    let total = 0
 
     function processPaymentBtn(){
         console.log("processPaymentBtn")
     }
 
+    const handleTotal = (price) => {
+        total += price
+    }
+
     return(
         <>
-        
-        {
-            data && data.order.map((order)=>{
-                console.log(order)
-
-
+        {data && data.order.map((order)=>{
             return(
-                <>
-
                 <div className="flex">
-                        <div className="m-3 p-2 bg-green-200">
-                            {"Order of "}{order?.createdByUser?.firstName}{" "}{order?.createdByUser?.lastName}<br />
-                            {"Status: "}{order?.status}<br />
-                            {"Date: "}{order?.timestamp}<br />
+                    <div className="m-3 p-2 bg-green-200 ">
+                        {order?.createdByUser?.firstName}{" "}{order?.createdByUser?.lastName}<br />
+                        <b>{"Status of Order: "}</b>{order?.status}<br />
 
-                        </div>
+                        {order?.product.map((product)=>{
+
+                            handleTotal(product?.productInfo?.price*product?.quantity)
+
+                            return(
+                                <div className="m-1 p-2 bg-blue-200">
+                                    <ul>
+                                        <li key="productID">
+                                            <b>Productid</b><br />{product?.productId}
+                                        </li>
+                                        <li>
+                                            <b>name</b><br />{product?.productInfo?.name}
+                                        </li>
+                                        <li>
+                                            <b>Price</b><br />{product?.productInfo?.price}
+                                        </li>
+                                        <li>
+                                            <b>Stock</b><br />{product?.productInfo?.count}
+                                        </li>
+                                        <li>
+                                            <b>Quantity</b><br />{product?.quantity}
+                                        </li>                                        
+                                    </ul>
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
-
-                </>
-                
             )
-                
-
-
-                // const handler = () => {
-                //    return setTotal(total+(order?.product[0]?.productInfo?.price*order?.product[0]?.quantity))
-                // }
-
-                // return(
-                    // <div className="flex">
-                    //     <div className="m-3 p-2 bg-green-200">
-                    //         {order?.createdByUser?.firstName}{" "}{order?.createdByUser?.lastName}
-                    //         <ul>
-                    //             <li key="productID">
-                    //                 <b>Productid</b><br />{order?.product[0]?.productId}
-                    //             </li>
-                    //             <li>
-                    //                 <b>name</b><br />{order?.product[0]?.productInfo?.name}
-                    //             </li>
-                    //             <li>
-                    //                 <b>Price</b><br />{order?.product[0]?.productInfo?.price}
-                    //             </li>
-                    //             <li>
-                    //                 <b>Stock</b><br />{order?.product[0]?.productInfo?.count}
-                    //             </li>
-                    //             <li>
-                    //                 <b>Quantity</b><br />{order?.product[0]?.quantity}
-                    //             </li>
-                    //         </ul>
-                    //     </div>
-                    // </div>
-                // )
-            })
-        }
-
-        <div className="m-3 p-2 bg-blue-200 border-gray-400">
-            {"Grand Total of This Order Will Be: "}{total}{" Baht."}
-            
+        })}
+        <div className="m-3 p-2 bg-blue-200 border-gray-400 flex">
+            {"Grand Total: "}{total}{" Baht."}
         </div>
 
         <button onClick={processPaymentBtn} className="m-2 p-1 bg-gray-200 shadow-md hover:shadow-xl">Process Payment</button>

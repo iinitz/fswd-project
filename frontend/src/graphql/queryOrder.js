@@ -19,6 +19,7 @@ export const QUERY_ORDER = gql`
             }
         paymentDetail
         timestamp
+        status
         }
     }
   
