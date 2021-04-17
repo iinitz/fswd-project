@@ -33,15 +33,26 @@ function Main() {
                             </Link>
 
                             <div className="search-box">
-                                {/* <div className="search-wrapper"> */}
                                 <div className="search-field">
                                     <input type="search" className="search-input" placeholder="Seach for products.." />
                                 </div>
-                                {/* </div> */}
                             </div>
 
                             <div className="header-icon-box">
-                                <ul className="header-icon-wrapper">
+                                <Link to="/" aria-label="shopping cart" className="shopping-cart-box">
+                                    <img src={cart} alt="" height="100%" />
+                                </Link>
+                                <div className="header-icon">
+                                    <img src={user} alt="" height="90%" />
+                                </div>
+                                <Link to="/login" className="user-list">
+                                    <h5>Login</h5>
+                                </Link>
+                                <span>|</span>
+                                <Link to="/register" className="user-list">
+                                    <h5>Register</h5>
+                                </Link>
+                                {/* <ul className="header-icon-wrapper">
                                     <Link to="/" aria-label="shopping cart" className="shopping-cart-box">
                                         <li className="header-icon">
                                             <img src={cart} alt="" height="100%" />
@@ -57,7 +68,7 @@ function Main() {
                                     <Link to="/register" className="user-list">
                                         <li>Register</li>
                                     </Link>
-                                </ul>
+                                </ul> */}
                             </div>
                         </div>
                     </div>
