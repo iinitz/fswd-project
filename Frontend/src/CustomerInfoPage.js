@@ -3,7 +3,7 @@ import './CustomerInfoStyle.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, Image, Button, Row, Col, Table} from 'react-bootstrap'
 import WebFont from 'webfontloader';
-import Github from "./profile.JPG";
+import Github from "./github.png";
 
 const CustomerInfoPage = () => {
     useEffect(() => {
