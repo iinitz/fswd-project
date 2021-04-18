@@ -18,7 +18,7 @@ export const SessionProvider = (props) => {
   const { children } = props
   const history = useHistory()
   const [user, setUser] = useState(null)
-  const [, setCookie, removeCookie] = useCookies(['token'])
+  const [cookie, setCookie, removeCookie] = useCookies(['token', 'user'])
   const [loadMe, { loading, data }] = useLazyQuery(ME_QUERY, {
     fetchPolicy: 'network-only',
   })
@@ -35,6 +35,7 @@ export const SessionProvider = (props) => {
         const res = await login({ variables })
         if (res?.data?.login?.token) {
           setCookie('token', res?.data?.login?.token, { maxAge: 86400, path: '/'})
+          setCookie('user', res?.data?.login?.user, { maxAge: 86400, path: '/'})
           setUser(res?.data?.login?.user)
           history.push('/')
         }
@@ -45,6 +46,13 @@ export const SessionProvider = (props) => {
     },
     [login, removeCookie, setCookie, history]
   )
+
+
+  useEffect(() => {
+    if(cookie.user){
+      setUser(cookie.user)
+    }
+  })
 
   const handleLogout = useCallback(() => {
     setUser(null)
