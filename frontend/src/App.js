@@ -8,10 +8,11 @@ const HomePage = React.lazy(() => import('./pages/HomePage'))
 const LoginPage = React.lazy(() => import('./pages/LoginPage'))
 const RegisterPage = React.lazy(() => import('./pages/RegisterPage'))
 const OrderPage = React.lazy(() => import('./pages/OrderPage'))
+const ProductPage = React.lazy(() => import('./pages/ProductPage'))
+const AddProductPage = React.lazy(() => import('./pages/AddProductPage'))
 const CheckoutPage = React.lazy(() => import('./pages/CheckoutPage'))
 const CartPage = React.lazy(() => import('./pages/CartPage'))
 const PaymentPage = React.lazy(() => import('./pages/PaymentPage'))
-
 const App = () => {
   return (
     <Fragment>
@@ -39,6 +40,12 @@ const App = () => {
             </Route>S
             <Route path="/checkout">
               <CheckoutPage />
+            </Route>
+            <Route path="/products">
+              <ProductPage />
+            </Route>
+            <Route path="/addProduct">
+              <AddProductPage />
             </Route>
             <Route path="/cart">
               <CartPage />
