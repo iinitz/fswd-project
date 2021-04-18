@@ -14,7 +14,7 @@ const AdminDashboard = () => {
             <h2>DASHBOARD</h2>
           </nav>
 
-          <div class="container p-4 m-4">
+          <div class="container m-4">
             <div class="row">
               <div class="col-5 radius">
                 <h1>Total Sales</h1>
