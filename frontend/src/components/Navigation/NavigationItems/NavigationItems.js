@@ -45,6 +45,9 @@ const NavigationItems = (props) => {
       <NavigationItem link="/" clickedFromNav={props.clicked} exact>
         Home
       </NavigationItem>
+      <NavigationItem link="/cart" clickedFromNav={props.clicked} exact>
+        Cart
+      </NavigationItem>
       {userBox}
     </ul>
   )
