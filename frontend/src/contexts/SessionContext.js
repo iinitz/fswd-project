@@ -34,7 +34,7 @@ export const SessionProvider = (props) => {
         }
         const res = await login({ variables })
         if (res?.data?.login?.token) {
-          setCookie('token', res?.data?.login?.token, { maxAge: 86400,path: '/'})
+          setCookie('token', res?.data?.login?.token, { maxAge: 86400, path: '/'})
           setUser(res?.data?.login?.user)
           history.push('/')
         }

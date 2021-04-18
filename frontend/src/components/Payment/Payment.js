@@ -18,6 +18,7 @@ const Payment = () => {
     total += price;
   };
 
+  // if (user) {
     return (
       <>
         {data &&
@@ -85,7 +86,16 @@ const Payment = () => {
           Process Payment
         </button>
       </>
-    )
+    );
+  // } else {
+  //   return (
+  //     <>
+  //       <div className="w-screen h-screen  text-2xl align-middle p-3">
+  //         {"Invalid Session, Please Login First!"}
+  //       </div>
+  //     </>
+  //   );
+  // }
 };
 
 export default Payment;

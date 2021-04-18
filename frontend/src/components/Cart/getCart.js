@@ -121,12 +121,12 @@ const GetCart = () => {
                         <div>
                             <span>
                                 Product Name: {product?.productInfo?.name} ({product?.productInfo?.count} Remaining)<br/>
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => Decrease(product.productId)} > - </button>
-                                Quantity: {product.quantity}
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => Increase(product.productId)} > + </button> <br/>
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => removeProduct(product.productId)} > remove </button> <br/>
-                                Unitprice: {product.productInfo.price}<br/>
-                                <b>Total: {summary(product.productInfo.price, product.quantity)}</b>
+                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => Decrease(product?.productId)} > - </button>
+                                Quantity: {product?.quantity}
+                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => Increase(product?.productId)} > + </button> <br/>
+                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => removeProduct(product?.productId)} > remove </button> <br/>
+                                Unitprice: {product?.productInfo?.price}<br/>
+                                <b>Total: {summary(product?.productInfo?.price, product?.quantity)}</b>
                             </span>
                         </div>
                         )
