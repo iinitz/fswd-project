@@ -34,12 +34,12 @@ export const SessionProvider = (props) => {
         }
         const res = await login({ variables })
         if (res?.data?.login?.token) {
-          setCookie('token', res?.data?.login?.token, { maxAge: 86400, path: '/' })
+          setCookie('token', res?.data?.login?.token, { maxAge: 86400,path: '/'})
           setUser(res?.data?.login?.user)
           history.push('/')
         }
       } catch (err) {
-        removeCookie('token', { maxAge: 86400, path: '/' })
+        removeCookie('token', { maxAge: 86400 })
         throw new Error(`username or password is not correct!`)
       }
     },
@@ -48,7 +48,7 @@ export const SessionProvider = (props) => {
 
   const handleLogout = useCallback(() => {
     setUser(null)
-    removeCookie('token', { maxAge: 86400, path: '/' })
+    removeCookie('token', { maxAge: 86400 })
   }, [removeCookie])
 
   useEffect(() => {
@@ -56,9 +56,9 @@ export const SessionProvider = (props) => {
       try {
         await loadMe()
       } catch (err) {
-        removeCookie('token', { maxAge: 86400, path: '/' })
+        removeCookie('token', { maxAge: 86400 })
       }
-      return removeCookie('token', { maxAge: 86400, path: '/' })
+      return removeCookie('token', { maxAge: 86400 })
     }
     loadData()
   }, [loadMe, removeCookie])
