@@ -1,27 +1,26 @@
-  #row1 {
-    margin-top: 10%;
-  }
-  #row2 {
-    margin-top: 15%;
-  }
-
-  .radius {
-    border-radius: 1.5em;
-    background-color: white;
-  }
-  
-  h1,
-  h2 {
-    padding-left: 1vw;
-  }
-
-  .inactive {
-    color: green;
-    text-decoration: none;
-    font-weight: bold;
-    margin-left: 5%;
+body {
+  background-color: #e0dfec;
+}
+h1,
+h2 {
+  margin-bottom: 0px;
+  margin-left: 5px;
+}
+#row1 {
+  margin-top: 10%;
+}
+#row2 {
+  margin-top: 15%;
 }
 
-  body {
-    background-color: blanchedalmond;
-  }
+.radius {
+  border-radius: 1.5em;
+  background-color: white;
+}
+
+.inactive {
+  color: green;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 5%;
+}

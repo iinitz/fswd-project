@@ -1,8 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Sidebar from "../../Sidebar/sidebar";
-import { NavLink } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 const AdminProducts = () => {
   return (
@@ -11,14 +10,24 @@ const AdminProducts = () => {
         <Sidebar />
 
         <div id="page-content-wrapper">
-          <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+          <nav class="navbar navbar-expand navbar-light bg-light">
             <h2>PRODUCTS</h2>
           </nav>
 
-
-          <NavLink to="/admin/products/create" className="inactive" activeClassName="active" exact={true}>Create Product</NavLink>
-          <NavLink to="/admin/products/:productId" className="inactive" activeClassName="active" exact={true}>Update Product</NavLink>
-
+          <div class="container m-2">
+            <div class="row">
+              <div class="col-2">
+                <Link to="/admin/products/create" exact={true}>
+                  <button class="btn btn-success">Create Product</button>
+                </Link>
+              </div>
+              <div class="col-2">
+                <Link to="/admin/products/:productId" exact={true}>
+                  <button class="btn btn-success">Update Product</button>
+                </Link>
+              </div>
+            </div>
+          </div>
           <div class="container-fluid">
             <p>
               _________________________________________________________________

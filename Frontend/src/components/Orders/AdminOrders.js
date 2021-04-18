@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Sidebar from "../../Sidebar/sidebar";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const AdminOrders = () => {
   return (
@@ -13,10 +13,11 @@ const AdminOrders = () => {
           <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
             <h2>ORDERS</h2>
           </nav>
-
-          <NavLink to="/admin/order/:orderId" className="inactive" activeClassName="active" exact={true}>Order Detail</NavLink>
-          
-
+          <div class="container m-2">
+            <Link to="/admin/order/:orderId" exact={true}>
+              <button class="btn btn-success">Order Detail</button>
+            </Link>
+          </div>
           <div class="container-fluid">
             <p>
               _________________________________________________________________

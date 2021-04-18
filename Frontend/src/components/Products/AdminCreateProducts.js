@@ -13,8 +13,6 @@ const AdminCreateProducts = () => {
             <h2>CREATE PRODUCTS</h2>
           </nav>
 
-          
-
           <div class="container-fluid">
             <p>
               _________________________________________________________________

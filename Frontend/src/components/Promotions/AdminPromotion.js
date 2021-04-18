@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Sidebar from "../../Sidebar/sidebar";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const AdminPromotion = () => {
   return (
@@ -13,10 +13,20 @@ const AdminPromotion = () => {
           <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
             <h2>PROMOTION</h2>
           </nav>
-
-          
-          <NavLink to="/admin/promotion/create" className="inactive" activeClassName="active" exact={true}>Create Promotions</NavLink>
-          <NavLink to="/admin/promotion/:promotionId" className="inactive" activeClassName="active" exact={true}>Update Promotions</NavLink>
+          <div class="container m-2">
+            <div class="row">
+              <div class="col-2">
+                <Link to="/admin/promotion/create" exact={true}>
+                  <button class="btn btn-success">Create Promotions</button>
+                </Link>
+              </div>
+              <div class="col-3">
+                <Link to="/admin/promotion/:promotionId" exact={true}>
+                  <button class="btn btn-success">Update Promotions</button>
+                </Link>
+              </div>
+            </div>
+          </div>
 
           <div class="container-fluid">
             <p>
