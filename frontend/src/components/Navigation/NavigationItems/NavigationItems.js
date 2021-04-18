@@ -42,17 +42,23 @@ const NavigationItems = (props) => {
 
   return (
     <ul className={classes.NavigationItems}>
-      <NavigationItem link="/products" clickedFromNav={props.cliked} exact>
-        Product
-      </NavigationItem>
       <NavigationItem link="/" clickedFromNav={props.clicked} exact>
         Home
+      </NavigationItem>
+      <NavigationItem link="/products" clickedFromNav={props.cliked} exact>
+        Product
       </NavigationItem>
       <NavigationItem link="/cart" clickedFromNav={props.clicked} exact>
         Cart
       </NavigationItem>
       <NavigationItem link="/order" clickedFromNav={props.clicked} exact>
         Order
+      </NavigationItem>
+      <NavigationItem link="/checkout" clickedFromNav={props.clicked} exact>
+        checkout(test)
+      </NavigationItem>
+      <NavigationItem link="/payment" clickedFromNav={props.clicked} exact>
+        payment(test)
       </NavigationItem>
       {userBox}
     </ul>
