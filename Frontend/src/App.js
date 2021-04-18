@@ -22,13 +22,14 @@ import Footer from './Components/Footer/Footer';
 import Login from './Components/Login';
 import Register from './Components/Register';
 
-import Navigation from './components/Navigation'
+import Navigation from './Components/Navigation'
 
 function App() {
     return (
         <>
-        <div><Navigation/></div>
+        
             <Router>
+            <div><Navigation/></div>
                 <nav className="Navbar-nav">
                     <div className="header-top">
                         <div className="header-top-container">
@@ -99,7 +100,7 @@ function App() {
                         </ul>
                     </div>
                 </nav>
-
+                
                 <Switch>
                     <Route path="/login">
                         <Login />
@@ -111,6 +112,7 @@ function App() {
                         <Home />
                     </Route>
                 </Switch>
+               
                 
             </Router>
         </>
