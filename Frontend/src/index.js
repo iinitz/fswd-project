@@ -9,7 +9,7 @@ import CustomerOrderDetailPage from './CustomerOrderDetailPage'
 
 ReactDOM.render(
   <React.StrictMode>
-    <CustomerOrderDetailPage />
+    <CustomerInfoPage />
   </React.StrictMode>,
   document.getElementById('root')
 );

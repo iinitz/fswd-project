@@ -3,6 +3,7 @@ import './CustomerInfoStyle.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, Image, Button, Row, Col, Table} from 'react-bootstrap'
 import WebFont from 'webfontloader';
+import Github from "./profile.JPG";
 
 const CustomerInfoPage = () => {
     useEffect(() => {
@@ -17,7 +18,9 @@ const CustomerInfoPage = () => {
             <Container>
                 <Row className="justify-content-md-center">
                     <Col xs lg="5" className="left-column">
-                        <Image id="customer-picture" src="github.png" height="200px" width="200px" roundedCircle/>
+                        <div id="border-image">
+                          <Image id="customer-picture" src={Github} height="200px" width="200px" roundedCircle/>
+                        </div>
                         <h2>username</h2>
                     </Col>
                     <Col xs lg="7" className="right-column">
