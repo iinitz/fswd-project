@@ -22,9 +22,12 @@ import Footer from './Components/Footer/Footer';
 import Login from './Components/Login';
 import Register from './Components/Register';
 
+import Navigation from './components/Navigation'
+
 function App() {
     return (
         <>
+        <div><Navigation/></div>
             <Router>
                 <nav className="Navbar-nav">
                     <div className="header-top">
