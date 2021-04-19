@@ -9,7 +9,7 @@ const Order = () => {
     variables: { userId: user?._id },
   });
 
-  if (user) {
+  // if (user) {
     return (
       <>
         {data &&
@@ -65,15 +65,15 @@ const Order = () => {
           })}
       </>
     );
-  } else {
-    return (
-      <>
-        <div className="w-screen h-screen  text-2xl align-middle p-3">
-          {"Invalid Session, Please Login First!"}
-        </div>
-      </>
-    );
-  }
+  // } else {
+  //   return (
+  //     <>
+  //       <div className="w-screen h-screen  text-2xl align-middle p-3">
+  //         {"Invalid Session, Please Login First!"}
+  //       </div>
+  //     </>
+  //   );
+  // }
 };
 
 export default Order;
