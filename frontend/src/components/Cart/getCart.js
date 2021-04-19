@@ -3,6 +3,7 @@ import { useQuery, useMutation } from '@apollo/client'
 import { QUERY_CART } from '../../graphql/CartQuery'
 import { RESET_CART, CLEAR_CART, UPDATE_CART } from '../../graphql/CartMutation'
 import { useSession } from '../../contexts/SessionContext'
+import DiscountBox from './DiscountBox'
 
 const GetCart = () => {
     const { user } = useSession()
@@ -123,8 +124,8 @@ const GetCart = () => {
                                 Product Name: {product?.productInfo?.name} ({product?.productInfo?.count} Remaining)<br/>
                                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => Decrease(product?.productId)} > - </button>
                                 Quantity: {product?.quantity}
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => Increase(product?.productId)} > + </button> <br/>
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => removeProduct(product?.productId)} > remove </button> <br/>
+                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => Increase(product?.productId)} > + </button>
+                                <div><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => removeProduct(product?.productId)} > remove </button> </div>
                                 Unitprice: {product?.productInfo?.price}<br/>
                                 <b>Total: {summary(product?.productInfo?.price, product?.quantity)}</b>
                             </span>
@@ -139,6 +140,7 @@ const GetCart = () => {
         {/* <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={clear_Cart} > CLEARCART (for test only) </button> <br/> */}
         {/* <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={reset_Cart} > RESET TO 2 ITEMS (for test only) </button> <br/> */}
         {/* <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => addProduct("6076ba3bd238cb0bde017e1e")}> ADD FFF3 </button> <br/> */}
+        <DiscountBox/>
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" > <a href="/checkout"> Proceed to checkout </a> </button> <br/>
         </div>
     )
