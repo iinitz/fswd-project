@@ -23,7 +23,7 @@ ReactDOM.render(
         <Suspense
           fallback={
             <div className={`${classes.fullPageLoader} ${classes.Logo}`}>
-              <img width="50" src={'/shop.png'} alt="shop" />
+              <img width="50" src={'./img/Logo.png'} alt="shop" />
             </div>
           }
         >

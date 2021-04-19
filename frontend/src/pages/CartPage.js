@@ -1,7 +1,11 @@
 import GetCart from '../components/Cart/getCart'
 
 const CartPage = () => {
-    return (<GetCart/>)
+    return (
+      <>
+      <GetCart/>
+      </>
+    )
   }
   
   export default CartPage
