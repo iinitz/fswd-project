@@ -1,7 +1,8 @@
 import { react, useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { CREATE_ORDER } from "../../graphql/createOrder";
-import { QUERY_CART, QUERY_CART_ORDER } from "../../graphql/CartQuery";
+import { QUERY_CART, QUERY_CART_ORDER} from "../../graphql/CartQuery";
+import { CLEAR_CART } from "../../graphql/CartMutation";
 import { useHistory } from "react-router-dom";
 import { useSession } from "../../contexts/SessionContext";
 
@@ -13,27 +14,37 @@ const Checkout = () => {
   const { data: dataOrder } = useQuery(QUERY_CART_ORDER, {
     variables: { userId: user?._id },
   });
-  const [createOrder] = useMutation(CREATE_ORDER);
+  const [createOrder, record] = useMutation(CREATE_ORDER);
+  const [clearCart] = useMutation(CLEAR_CART);
   let history = useHistory();
+  
+  
 
-  function createOrderBtn() {
+  async function ProcessPaymentBtn() {
     let dataOrderString = JSON.stringify(dataOrder);
     let dataOrderJSON = JSON.parse(dataOrderString);
 
     let a = [...dataOrderJSON.cart[0].product];
     a.map((obj) => delete obj.__typename);
 
-    console.log("create order success");
-    history.push("/payment");
-
-    return createOrder({
+    let dataCreateOrder = await createOrder({
       variables: {
-        userId: "6077f2c070ffdf2acc072bc9",
+        userId: user?._id,
         statusOrder: "waiting",
         payment: "unspecify",
         product: a,
       },
     });
+
+    clearCart({
+      variables:{
+        userId: user?._id,
+      }
+    })
+
+    let orderId = dataCreateOrder?.data?.createOrder?.record?._id
+    history.push('payment/'+orderId)
+    
   }
 
   if (user) {
@@ -80,7 +91,7 @@ const Checkout = () => {
         </div>
 
         <button
-          onClick={createOrderBtn}
+          onClick={() => ProcessPaymentBtn()}
           className="m-2 p-1 bg-gray-200 shadow-md hover:shadow-xl"
         >
           Go to Payment

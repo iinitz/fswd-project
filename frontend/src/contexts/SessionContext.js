@@ -41,6 +41,7 @@ export const SessionProvider = (props) => {
         }
       } catch (err) {
         removeCookie('token', { maxAge: 86400 })
+        removeCookie('user', { maxAge: 86400 })
         throw new Error(`username or password is not correct!`)
       }
     },
@@ -57,6 +58,7 @@ export const SessionProvider = (props) => {
   const handleLogout = useCallback(() => {
     setUser(null)
     removeCookie('token', { maxAge: 86400 })
+    removeCookie('user', { maxAge: 86400 })
   }, [removeCookie])
 
   useEffect(() => {
@@ -65,8 +67,9 @@ export const SessionProvider = (props) => {
         await loadMe()
       } catch (err) {
         removeCookie('token', { maxAge: 86400 })
+        removeCookie('user', { maxAge: 86400 })
       }
-      return removeCookie('token', { maxAge: 86400 })
+      return removeCookie('token', { maxAge: 86400 }), removeCookie('user', { maxAge: 86400 })
     }
     loadData()
   }, [loadMe, removeCookie])

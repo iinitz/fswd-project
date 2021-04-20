@@ -140,7 +140,7 @@ const GetCart = () => {
         {/* <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={clear_Cart} > CLEARCART (for test only) </button> <br/> */}
         {/* <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={reset_Cart} > RESET TO 2 ITEMS (for test only) </button> <br/> */}
         {/* <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => addProduct("6076ba3bd238cb0bde017e1e")}> ADD FFF3 </button> <br/> */}
-        <DiscountBox/>
+        {/* <DiscountBox/> */}
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" > <a href="/checkout"> Proceed to checkout </a> </button> <br/>
         </div>
     )
