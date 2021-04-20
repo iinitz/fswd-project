@@ -14,10 +14,7 @@ export const CREATE_ORDER = gql`
         product:$product
     }){
         record{
-        timestamp
-        product{
-        productId
-      }
+        _id
         }
     }
 }

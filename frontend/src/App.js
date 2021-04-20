@@ -50,6 +50,9 @@ const App = () => {
             <Route path="/cart">
               <CartPage />
             </Route>
+            <Route path="/payment/:orderId">
+              <PaymentPage />
+            </Route>
             <Route path="/payment">
               <PaymentPage />
             </Route>
