@@ -24,7 +24,7 @@ const Checkout = () => {
     a.map((obj) => delete obj.__typename);
 
     console.log("create order success");
-    history.push("/payment");
+    history.push("/order");
 
     return createOrder({
       variables: {
@@ -83,7 +83,7 @@ const Checkout = () => {
           onClick={createOrderBtn}
           className="m-2 p-1 bg-gray-200 shadow-md hover:shadow-xl"
         >
-          Go to Payment
+          Create Order
         </button>
       </>
     );
