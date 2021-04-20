@@ -72,7 +72,7 @@ const OrderCard = (props) => {
           {" Baht."}
         </div>
         <button
-        onClick={processPaymentBtn(order?._id)}
+          onClick={() => processPaymentBtn(order?._id)}
           className="m-2 p-1 bg-gray-200 shadow-md hover:shadow-xl"
           >
           Process Payment
