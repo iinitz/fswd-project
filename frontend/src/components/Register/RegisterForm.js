@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/client'
 
 import { CREATE_CUSTOMER_MUTATION } from '../../graphql/createCustomerMutation'
 import { CREATE_ADMIN_MUTATION } from '../../graphql/createAdminMutation'
+import { CREATE_CART } from '../../graphql/CartMutation'
 import { Link } from 'react-router-dom'
 
 const RegisterForm = () => {
@@ -23,6 +24,7 @@ const RegisterForm = () => {
     useMutation(CREATE_CUSTOMER_MUTATION),
     useMutation(CREATE_ADMIN_MUTATION),
   ]
+  const [createEmptyCart] = useMutation(CREATE_CART)
   const handleInputChange = useCallback((e) => {
     const { name, value } = e.target
     setNewUser((prev) => ({ ...prev, [name]: value }))
@@ -38,8 +40,12 @@ const RegisterForm = () => {
       e.preventDefault()
       try {
         console.log(JSON.stringify(newUser))
-        if (type === 'customer')
-          await createCustomer({ variables: { record: newUser } })
+        if (type === 'customer'){
+          let userData = await createCustomer({ variables: { record: newUser } })
+          let newUserId = userData?.data?.createCustomer?.record?._id
+          // console.log(newUserId)
+          await createEmptyCart({variables: {userId: newUserId}})
+        }
         else
           await createAdmin({ variables: { record: { ...newUser, ...admin } } })
         serErr('')

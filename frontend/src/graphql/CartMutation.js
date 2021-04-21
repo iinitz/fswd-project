@@ -25,8 +25,20 @@ mutation UpdateCart($userId: String!){
   }
 `;
 
+export const CREATE_CART = gql`
+mutation createNewCart($userId: String!){
+  createCart(record: {
+    product: []
+    createdById: $userId
+  })
+  {
+    __typename
+  }
+}
+`
+
 export const UPDATE_CART = gql`
-mutation increaseItem($userId: String!, $product: [UpdateOneCartProductInput]!){
+mutation updateItem($userId: String!, $product: [UpdateOneCartProductInput]!){
   updateCart(
     filter: { createdById: $userId }
     record: {

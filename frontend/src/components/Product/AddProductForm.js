@@ -9,6 +9,7 @@ import { PRODUCT_QUERY } from '../../graphql/productsQuery'
 
 const AddProductForm = () => {
     const { user } = useSession()
+    console.log(user, "UserID")
     const history = useHistory()
     const [newProduct, setNewProduct] = useState({
         name: '',
