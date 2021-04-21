@@ -14,7 +14,7 @@ const Checkout = () => {
   const { data: dataOrder } = useQuery(QUERY_CART_ORDER, {
     variables: { userId: user?._id },
   });
-  const [createOrder, record] = useMutation(CREATE_ORDER);
+  const [createOrder] = useMutation(CREATE_ORDER);
   const [clearCart] = useMutation(CLEAR_CART);
   let history = useHistory();
   
@@ -54,7 +54,7 @@ const Checkout = () => {
           <div className="m-3 p-2 bg-red-200 ">
             {data?.cart[0]?.createdByUser?.firstName}{" "}
             {data?.cart[0]?.createdByUser?.lastName}
-            {data?.cart[0].product.map((product) => {
+            {data?.cart[0]?.product.map((product) => {
               return (
                 <div className="m-1 p-2 bg-green-200">
                   <ul>

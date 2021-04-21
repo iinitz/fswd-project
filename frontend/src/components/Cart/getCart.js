@@ -28,7 +28,7 @@ const GetCart = () => {
     }
 
     function addProduct(productId){
-        var temp = JSON.stringify(data.cart[0].product)
+        var temp = JSON.stringify(data?.cart[0]?.product)
         var inCart = JSON.parse(temp)
         
         var newProduct = {
@@ -48,7 +48,7 @@ const GetCart = () => {
     }
 
     function removeProduct(productId){
-        var temp = JSON.stringify(data.cart[0].product)
+        var temp = JSON.stringify(data?.cart[0]?.product)
         var inCart = JSON.parse(temp)
         var productIndex = inCart.findIndex((item) => item.productId === productId)
         
@@ -59,7 +59,7 @@ const GetCart = () => {
     }
 
     function Increase(productId){
-        var temp = JSON.stringify(data.cart[0].product)
+        var temp = JSON.stringify(data?.cart[0]?.product)
         var inCart = JSON.parse(temp)
 
         var productIndex = inCart.findIndex((item) => item.productId === productId)
@@ -81,7 +81,7 @@ const GetCart = () => {
     }
 
     function Decrease(productId){
-        var temp = JSON.stringify(data.cart[0].product)
+        var temp = JSON.stringify(data?.cart[0]?.product)
         var inCart = JSON.parse(temp)
 
         var productIndex = inCart.findIndex((item) => item.productId === productId)
