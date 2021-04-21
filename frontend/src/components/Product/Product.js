@@ -28,14 +28,14 @@ const Product = (props) => {
     }, [])
 
     function addtoCart(productId){
-        var temp = JSON.stringify(data.cart[0].product)
+        var temp = JSON.stringify(data?.cart[0]?.product)
         var inCart = JSON.parse(temp)
         
         var newProduct = {
             productId: productId,
             quantity: 1
           }
-        var productIndex = inCart.findIndex((item) => item.productId === productId)
+        var productIndex = inCart.findIndex((item) => item?.productId === productId)
 
         if (productIndex === -1){
             inCart = [...inCart, newProduct]

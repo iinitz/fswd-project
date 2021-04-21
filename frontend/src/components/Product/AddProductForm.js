@@ -5,6 +5,8 @@ import {useSession} from '../../contexts/SessionContext'
 import { CREATE_PRODUCT_MUTATION } from '../../graphql/createProduct'
 import { CREATE_PROMOTION_PRODUCT_MUTATION} from '../../graphql/createPromotionProduct'
 import { parse } from 'graphql';
+import { PRODUCT_QUERY } from '../../graphql/productsQuery'
+
 const AddProductForm = () => {
     const { user } = useSession()
     const history = useHistory()
@@ -21,10 +23,16 @@ const AddProductForm = () => {
         discount: 0,
         limit: 0
     })
+
+    const refetchQuery = {refetchQueries: [{
+                          query: PRODUCT_QUERY
+                      }]
+                    }
+
     const [err, setErr] = useState('')
     const [[createProduct], [createPromotionProduct]] = [
-        useMutation(CREATE_PRODUCT_MUTATION),
-        useMutation(CREATE_PROMOTION_PRODUCT_MUTATION)
+        useMutation(CREATE_PRODUCT_MUTATION, refetchQuery),
+        useMutation(CREATE_PROMOTION_PRODUCT_MUTATION, refetchQuery)
     ]
 
     const handleInputChange = useCallback((e) => {
