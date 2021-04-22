@@ -59,7 +59,7 @@ export const SessionProvider = (props) => {
       setUser(cookie.user)
     }
     return () => {}
-  })
+  }, [cookie])
 
   const handleLogout = useCallback(() => {
     setUser(null)

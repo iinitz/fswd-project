@@ -129,10 +129,10 @@ const GetCart = () => {
       {data &&
         data.cart.map((item) => {
           return (
-            <div>
+            <div key={item}>
               {item.product.map((product) => {
                 return (
-                  <div>
+                  <div key={product.productId}>
                     <span>
                       Product Name: {product?.productInfo?.name} (
                       {product?.productInfo?.count} Remaining)
