@@ -22,6 +22,14 @@ import Footer from './Components/Footer/Footer';
 import Login from './Components/Login';
 import Register from './Components/Register';
 
+import CustomerInfoPage from './Components/Customers/CustomerInfoPage';
+import CustomerOrdersPage from './Components/Customers/CustomerOrdersPage';
+import CustomerOrderDetailPage from './Components/Customers/CustomerOrderDetailPage';
+
+import Cart from './Components/Payments/Cart';
+import Checkout from './Components/Payments/Checkout';
+import Payment from './Components/Payments/Payment';
+
 import Navigation from './Components/Navigation'
 
 function App() {
@@ -46,7 +54,7 @@ function App() {
                             </div>
 
                             <div className="header-icon-box">
-                                <Link to="/" title="shopping cart" className="header-shopping-cart-box">
+                                <Link to="/cart" title="shopping cart" className="header-shopping-cart-box">
                                     <img src={cart} alt="" height="100%" />
                                 </Link>
                                 <div className="header-user-icon">
@@ -108,6 +116,30 @@ function App() {
                     <Route path="/register">
                         <Register />
                     </Route>
+
+                    <Route path="/customer">
+                        <CustomerInfoPage />
+                    </Route>
+
+                    <Route path="/customer/orders">
+                        <CustomerOrdersPage />
+                    </Route>
+
+                    <Route path="/customerOderDetail">
+                        <CustomerOrderDetailPage />
+                    </Route>
+
+                    <Route path="/cart">
+                        <Cart />
+                    </Route>
+
+                    <Route path="/checkout">
+                        <Checkout />
+                    </Route>
+                    <Route path="/payment">
+                        <Payment />
+                    </Route>
+
                     <Route path="/">
                         <Home />
                     </Route>

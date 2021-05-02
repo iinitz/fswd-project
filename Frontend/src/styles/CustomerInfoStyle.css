@@ -1,18 +1,10 @@
 
 .background {
     font-family: 'Roboto';
-    height: 100vh;
+    height: 84vh;
+    width: 100vw;
     background-color: #F1EFFF;
     padding: 5%;
-}
-
-.container {
-    height: 100%;
-}
-
-.row {
-    height: 100%;
-    padding-top: 10%;
 }
 
 .left-column {

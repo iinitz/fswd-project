@@ -1,9 +1,11 @@
 import React, {useEffect} from 'react';
-import './CustomerInfoStyle.css';
+import '../../styles/CustomerInfoStyle.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, Image, Button, Row, Col, Table} from 'react-bootstrap'
 import WebFont from 'webfontloader';
-import Github from "./github.png";
+import Github from "../../img/github.png";
+
+import {Link} from 'react-router-dom';
 
 const CustomerInfoPage = () => {
     useEffect(() => {
@@ -34,7 +36,9 @@ const CustomerInfoPage = () => {
                             Date of Birth :
                         </p>
                         <br/>
-                        <Button id="order-button" variant="default" style={{color: "#EEEEEE", background: "#3C4F76"}}>YOUR ORDERS</Button>
+                        <Link to="/customer/orders">
+                            <Button id="order-button" variant="default" style={{color: "#EEEEEE", background: "#3C4F76"}}>YOUR ORDERS</Button>
+                        </Link>
                     </Col>
                 </Row>
             </Container>
